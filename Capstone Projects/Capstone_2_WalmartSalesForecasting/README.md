@@ -1,10 +1,9 @@
 ![cover_photo](./README_files/walmart_cover_photo.png)
 # Walmart Sales Forecasting
 
-*With 56% of U.S. grocery market-share, 4,743 U.S. stores, 240M customers worldwide, and $559B in worldwide revenue it’s easy to say that Walmart is huge (Statista 2021, April 27), and with Walmart’s huge size comes huge amounts of data.
-Thus, in 2014 they created a public competition for data-scientists to predict store sales using a selection of their anonymized datasets. The prizes were potential positions at Walmart.
+*With 56% of U.S. grocery market-share, 4,743 U.S. stores, 240M customers worldwide, and $559B in worldwide revenue it’s easy to say that Walmart is huge (Statista 2021, April 27), and with Walmart’s huge size comes huge amounts of data. Thus, in 2014 they created a public competition for data-scientists to predict store sales using a selection of their anonymized datasets. The prizes were potential positions at Walmart.*
 
-Here, I accept that challenge.*
+*Here, I accept that challenge.*
 
 [Walmart Recruiting - Store Sales Forecasting](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting)
 
@@ -35,7 +34,13 @@ Finally, and again, refine the final chosen model’s hyperparameters via RSCV a
 No features highly correlated with weekly sales (the target feature). Though, store size correlated higher than the other features by a long shot with a value of 0. 
 To clarify, a value of 1.00 is perfect positive correlation, -1.00 perfect negative correlation.
 
-![](./README_files/Weekly_Sales_vs_Features_Correlations.png)
+![](./Visualizations/Weekly_Sales_vs_Features_Correlations.png)
+
+![](./Visualizations/Median_Weekly_Sales_with_Holidays.png)
+
+![](./Visualizations/Model_Performances_Table.png)
+
+![](./Visualizations/Final_Results_Visualized.png)
 
 
 ## The Results
