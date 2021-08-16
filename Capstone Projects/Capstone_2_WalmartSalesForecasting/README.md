@@ -3,4 +3,33 @@
 
 *With 56% of U.S. grocery market-share, 4,743 U.S. stores, 240M customers worldwide, and $559B in worldwide revenue it’s easy to say that Walmart is huge (Statista 2021, April 27), and with Walmart’s huge size comes huge amounts of data.
 Thus, in 2014 they created a public competition for data-scientists to predict store sales using a selection of their anonymized datasets. The prizes were potential positions at Walmart.
-Here, I accept the challenge.
+
+Here, I accept that challenge.*
+
+[Walmart Recruiting - Store Sales Forecasting](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting)
+
+## The Data
+
+> * Date (2010-2013)
+> * Store (45 unique, numeric)
+> * Department (many unique per store)
+> * Weekly Sales (target feature, $)
+> * Holiday (T/F, this is of particular importance
+> * Store Size (numeric)
+> * Etc. (Temperature, Fuel Price, Markdowns...)
+
+## The Goal
+Predict sales per store, per department, per year, per week.
+
+## The Metric of Success
+Mean Absolute Error (hereafter MAE)
+
+## The Approach
+This is a regression problem, thus experiment with many untuned regression machine-learning algorithms and see which perform best based on MAE.
+Then, refine those best models with randomized-search cross-validation (hereafter RSCV). Randomized-search as opposed to grid-search so to reduce time and resources spent while also maximizing hyperparameter points explored. Performance is measured as the mean MAE over the cross-validation folds.
+Of the refined models, choose the best performer on a basis of balance between cost and performance.
+Finally, and again, refine the final chosen model’s hyperparameters via RSCV and review performance.
+
+## The Findings
+
+## The Results
