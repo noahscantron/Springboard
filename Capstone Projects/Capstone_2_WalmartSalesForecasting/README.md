@@ -50,8 +50,9 @@ Because of their mean MAEs, random-forest and decision-tree regressors were chos
 
 ## The Final Results
 The final refinement RSCV’d over the hyperparameters criterion, max_depth, and min_impurity_decrease, finding the best parameters of 0.1, 119, and friedman_mse respectively after 100 candidates (5-fold CV). On the training data the best MAE was 0.0936. All while only taking 38 minutes on my machine.
-Finally, the final model’s MAE of predictions against the test set was 0.0863.
+
+**Finally, the final model’s MAE of predictions against the test set was 0.0863.**
 
 ![](./Visualizations/Final_Results_Visualized.png)
 
-<center>*Since the testing data spans many stores, departments, years, and is randomized this is my best approximation of how to visualize truth vs. predictions*</center>
+*Since the testing data spans many stores, departments, years, and is randomized this is my best approximation of how to visualize truth vs. predictions*
