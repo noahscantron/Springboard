@@ -54,4 +54,4 @@ Finally, the final model’s MAE of predictions against the test set was 0.0863.
 
 ![](./Visualizations/Final_Results_Visualized.png)
 
-*Since the testing data spans many stores, departments, years, and is randomized this is my best approximation of how to visualize truth vs. predictions*
+<center>*Since the testing data spans many stores, departments, years, and is randomized this is my best approximation of how to visualize truth vs. predictions*</center>
