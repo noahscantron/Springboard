@@ -40,14 +40,18 @@ Trends in sales were visibly (and predictably) annual, with spikes in sales occu
 
 ![](./Visualizations/Median_Weekly_Sales_with_Holidays.png)
 
-Now, modelling. Tree based models significantly outperformed their counterparts, as seen in this table of model vs. model performance:
+**Now, modelling.** Tree based models significantly outperformed their counterparts, as seen in this table of model vs. model performance:
 
 ![](./Visualizations/Model_Performances_Table.png)
 
 Random-forest achieved the lowest mean 4-fold cross-validated MAE, but only marginally compared to a decision tree; especially when considering the difference in training time.
-	Random-forest and decision-tree regressors were chosen to be refined via RSCV.
+Because of their mean MAEs, random-forest and decision-tree regressors were chosen to progress and be refined via RSCV (4-fold). Random-forest took 430 minutes to train 12 candidates on my machine, achieving a best MAE of 0.0825. Decision-tree took 18 minutes to train 30 candidates and achieved a best MAE of 0.0973. Due to the high cost of training with only marginal performance improvement, I chose the decision-tree as the final model to refine.
+
+
+## The Final Results
+The final refinement RSCV’d over the hyperparameters criterion, max_depth, and min_impurity_decrease, finding the best parameters of 0.1, 119, and friedman_mse respectively after 100 candidates (5-fold CV). On the training data the best MAE was 0.0936. All while only taking 38 minutes on my machine.
+Finally, the final model’s MAE of predictions against the test set was 0.0863.
 
 ![](./Visualizations/Final_Results_Visualized.png)
 
-
-## The Results
+*Since the testing data spans many stores, departments, years, and is randomized this is my best approximation of how to visualize truth vs. predictions*
