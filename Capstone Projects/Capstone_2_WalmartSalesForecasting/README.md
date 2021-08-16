@@ -36,9 +36,16 @@ To clarify, a value of 1.00 is perfect positive correlation, -1.00 perfect negat
 
 ![](./Visualizations/Weekly_Sales_vs_Features_Correlations.png)
 
+Trends in sales were visibly (and predictably) annual, with spikes in sales occurring around holidays. The vertical blue lines denote the Super Bowl, Labor Day, Thanksgiving (Black Friday), and Christmas from left to right. These trends may be obvious, but nonetheless interesting to visualize and model with.
+
 ![](./Visualizations/Median_Weekly_Sales_with_Holidays.png)
 
+Now, modelling. Tree based models significantly outperformed their counterparts, as seen in this table of model vs. model performance:
+
 ![](./Visualizations/Model_Performances_Table.png)
+
+Random-forest achieved the lowest mean 4-fold cross-validated MAE, but only marginally compared to a decision tree; especially when considering the difference in training time.
+	Random-forest and decision-tree regressors were chosen to be refined via RSCV.
 
 ![](./Visualizations/Final_Results_Visualized.png)
 
