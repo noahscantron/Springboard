@@ -64,7 +64,7 @@ The final refinement RSCV’d over the hyperparameters criterion, max_depth, and
 
 ![](./Visualizations/Final_Results_Visualized.png)
 
-<div align="center">*Since the testing data spans many stores, departments, years, and is randomized this is my best approximation of how to visualize truth vs. predictions*</div>
+*Since the testing data spans many stores, departments, years, and is randomized this is my best approximation of how to visualize truth vs. predictions*
 
 ## Further Research
 While the focus of this project was to learn the data-science methodology and stack by creating a project that would have business-impact, there is more that I would have liked to have done:
