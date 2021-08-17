@@ -12,6 +12,7 @@ Stored across multiple .csv files, once merged and cleaned the main features inc
 
 > * Date (2010-2013)
 > * Store (45 unique, numeric)
+> * Type (store type, [A,B,C])
 > * Department (many unique per store)
 > * Weekly Sales (target feature, $)
 > * Holiday (T/F, this is of particular importance
@@ -36,6 +37,10 @@ To clarify, a value of 1.00 is perfect positive correlation, -1.00 perfect negat
 
 ![](./Visualizations/Weekly_Sales_vs_Features_Correlations.png)
 
+To illustrate all feature correlations relative to each other, a heatmap:
+
+![](./Visualizations/Feature_Correlations.png)
+
 Trends in sales were visibly (and predictably) annual, with spikes in sales occurring around holidays. The vertical blue lines denote the Super Bowl, Labor Day, Thanksgiving (Black Friday), and Christmas from left to right. These trends may be obvious, but nonetheless interesting to visualize and model with.
 
 ![](./Visualizations/Median_Weekly_Sales_with_Holidays.png)
@@ -45,14 +50,30 @@ Trends in sales were visibly (and predictably) annual, with spikes in sales occu
 ![](./Visualizations/Model_Performances_Table.png)
 
 Random-forest achieved the lowest mean 4-fold cross-validated MAE, but only marginally compared to a decision tree; especially when considering the difference in training time.
-Because of their mean MAEs, random-forest and decision-tree regressors were chosen to progress and be refined via RSCV (4-fold). Random-forest took 430 minutes to train 12 candidates on my machine, achieving a best MAE of 0.0825. Decision-tree took 18 minutes to train 30 candidates and achieved a best MAE of 0.0973. Due to the high cost of training with only marginal performance improvement, I chose the decision-tree as the final model to refine.
+Because of their mean MAEs, random-forest and decision-tree regressors were chosen to progress and be refined via RSCV (4-fold). Random-forest took 430 minutes to train 12 candidates on my machine, achieving a best MAE of 0.0825. Decision-tree took 18 minutes to train 30 candidates and achieved a best MAE of 0.0973. Due to the high cost of training with only marginal performance improvement, **decision-tree regression was chosen as the final model** to refine.
 
 
 ## The Final Results
 The final refinement RSCV’d over the hyperparameters criterion, max_depth, and min_impurity_decrease, finding the best parameters of 0.1, 119, and friedman_mse respectively after 100 candidates (5-fold CV). On the training data the best MAE was 0.0936. All while only taking 38 minutes on my machine.
 
-**Finally, the final model’s MAE of predictions against the test set was 0.0863.**
+**Interpreting the model** is downright confusing, as it has 119 branches and 143 features. The most helpful features in reducing error for the model were “store of type-B” and “Department 92”. I honestly don’t know what to make of this. I concede that choosing to go with a simpler decision tree (i.e. 10 branches) would have provided much more interpretability, but it would have come at the cost of accuracy; a tree with 8 branches had a MAE of 0.454 and 37 branches had 0.160.
+
+![](./Visualizations/Top_10_Features_by_Importances(Normalized).png)
+
+**The results** of the final model’s MAE of predictions against the test set was **0.0863**. You can view the predictions vs. the true values (aggregated) below:
 
 ![](./Visualizations/Final_Results_Visualized.png)
 
 *Since the testing data spans many stores, departments, years, and is randomized this is my best approximation of how to visualize truth vs. predictions*
+
+## Further Research
+While the focus of this project was to learn the data-science methodology and stack by creating a project that would have business-impact, there is more that I would have liked to have done:
+> * Use statsmodels tsa (time-series analysis) to decompose this series and find the:
+	 > * Trend
+	 > * Seasonality
+	 > * Residuals
+> * Apply auto-regressive integrated moving average (ARIMA)
+	 > * This is almost redundant of the previous point, but I find worth noting
+
+## How to Use the Findings
+Use this model to forecast and prepare Walmart’s supply operations based on predictions of demand.
